@@ -1,21 +1,12 @@
-/* ==================================================
-   AERVANTA ALL SERVICES CSS
-   All-services-only sections:
-   Service accordion, problem guide,
-   provider evaluation slider, compare section.
-================================================== */
 
-/* ==================================================
-   HERO
-================================================== */
+
+
 
 .all-services-hero .shared-hero__bg img {
     object-position: center;
 }
 
-/* ==================================================
-   SERVICE CATEGORY HORIZONTAL ACCORDION
-================================================== */
+
 
 .services-accordion-section {
     overflow: hidden;
@@ -151,9 +142,7 @@
     margin-top: 22px;
 }
 
-/* ==================================================
-   PROBLEM-TO-SERVICE GUIDE
-================================================== */
+
 
 .problem-guide {
     overflow: hidden;
@@ -241,9 +230,7 @@
     line-height: 1.1;
 }
 
-/* ==================================================
-   PROVIDER EVALUATION SLIDER
-================================================== */
+
 
 .provider-evaluation {
     overflow: hidden;
@@ -343,9 +330,7 @@
     box-shadow: 0 3px 0 rgba(107, 26, 31, 0.34);
 }
 
-/* ==================================================
-   COMPARE BEFORE YOU CHOOSE
-================================================== */
+
 
 .compare-before {
     overflow: hidden;
@@ -423,9 +408,7 @@
     transform: translateY(-3px) rotate(-4deg);
 }
 
-/* ==================================================
-   RESPONSIVE
-================================================== */
+
 
 @media (max-width: 1180px) {
     .service-accordion__content {
@@ -564,7 +547,7 @@
 }
 
 
-/* Compare Before You Choose — background photo with black overlay */
+
 .compare-before {
     position: relative;
     overflow: hidden;
@@ -579,7 +562,7 @@
     position: absolute;
     inset: 0;
     background: rgba(0, 0, 0, 0.58);
-    /* среднее черное затемнение */
+    
     z-index: 0;
     pointer-events: none;
 }

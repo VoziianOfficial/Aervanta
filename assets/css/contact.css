@@ -1,21 +1,12 @@
-/* ==================================================
-   AERVANTA CONTACT CSS
-   Contact-only sections:
-   Contact options, request checklist,
-   main request form, after-submit circles.
-================================================== */
 
-/* ==================================================
-   HERO
-================================================== */
+
+
 
 .contact-hero .shared-hero__bg img {
     object-position: center;
 }
 
-/* ==================================================
-   CONTACT OPTIONS STRIP
-================================================== */
+
 
 .contact-options {
     overflow: hidden;
@@ -123,9 +114,7 @@
     transform: translateY(-5px) rotate(-5deg);
 }
 
-/* ==================================================
-   REQUEST PREPARATION CHECKLIST
-================================================== */
+
 
 .request-checklist {
     overflow: hidden;
@@ -214,9 +203,7 @@
     border-radius: 30px;
 }
 
-/* ==================================================
-   MAIN CONTACT / REQUEST FORM
-================================================== */
+
 
 .contact-form-section {
     position: relative;
@@ -370,9 +357,7 @@
     opacity: 0.72;
 }
 
-/* ==================================================
-   WHAT HAPPENS AFTER YOU SUBMIT
-================================================== */
+
 
 .after-submit {
     overflow: hidden;
@@ -469,9 +454,7 @@
     border-color: rgba(213, 122, 62, 0.7);
 }
 
-/* ==================================================
-   RESPONSIVE
-================================================== */
+
 
 @media (max-width: 1180px) {
     .contact-options__grid {
@@ -597,7 +580,7 @@
     }
 }
 
-/* Contact Options Strip — compact cards */
+
 .contact-options .contact-option-card {
     min-height: 130px;
     aspect-ratio: auto;

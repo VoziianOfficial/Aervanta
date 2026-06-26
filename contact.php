@@ -2,19 +2,7 @@
 
 declare(strict_types=1);
 
-/*
-|--------------------------------------------------------------------------
-| Aervanta Contact Form Backend
-|--------------------------------------------------------------------------
-| This form only sends emails on a server that supports PHP mail().
-| For local testing, run:
-|
-| php -S localhost:8000
-|
-| Then open:
-| http://localhost:8000/contact.html
-|--------------------------------------------------------------------------
-*/
+
 
 header('Content-Type: application/json; charset=utf-8');
 
@@ -95,14 +83,7 @@ function buildEmailBody(array $data): string
     ]);
 }
 
-/*
-|--------------------------------------------------------------------------
-| Honeypot anti-spam protection
-|--------------------------------------------------------------------------
-| The visible form leaves the "website" field empty.
-| Bots often fill it.
-|--------------------------------------------------------------------------
-*/
+
 
 $honeypot = field('website');
 
@@ -110,14 +91,7 @@ if ($honeypot !== '') {
     respond(true, 'Thank you. Your request has been received.');
 }
 
-/*
-|--------------------------------------------------------------------------
-| Minimum submission timing protection
-|--------------------------------------------------------------------------
-| The frontend sets formStartedAt to Date.now().
-| Very fast submissions are likely automated.
-|--------------------------------------------------------------------------
-*/
+
 
 $formStartedAt = field('formStartedAt');
 
@@ -129,11 +103,7 @@ if ($formStartedAt !== '' && ctype_digit($formStartedAt)) {
     }
 }
 
-/*
-|--------------------------------------------------------------------------
-| Required field validation
-|--------------------------------------------------------------------------
-*/
+
 
 foreach ($requiredFields as $fieldName) {
     if (field($fieldName) === '') {
@@ -182,11 +152,7 @@ if (
     respond(false, 'Please check the required fields and try again.', 400);
 }
 
-/*
-|--------------------------------------------------------------------------
-| Allowed service categories
-|--------------------------------------------------------------------------
-*/
+
 
 $allowedServices = [
     'HVAC Installation & Replacement',

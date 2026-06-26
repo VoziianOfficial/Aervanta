@@ -1,21 +1,12 @@
-/* ==================================================
-   AERVANTA HOME CSS
-   Homepage-only sections:
-   Comfort selector, service paths, platform difference,
-   quote factors, seasonal slider, FAQ.
-================================================== */
 
-/* ==================================================
-   HOME HERO
-================================================== */
+
+
 
 .home-hero .shared-hero__bg img {
     object-position: center;
 }
 
-/* ==================================================
-   COMFORT SITUATION SELECTOR
-================================================== */
+
 
 .home-comfort {
     overflow: hidden;
@@ -174,9 +165,7 @@
     }
 }
 
-/* ==================================================
-   HVAC SERVICE PATHS
-================================================== */
+
 
 .home-paths {
     overflow: hidden;
@@ -335,9 +324,7 @@
     color: var(--color-red);
 }
 
-/* ==================================================
-   PLATFORM DIFFERENCE HEXAGONS
-================================================== */
+
 
 .home-difference {
     overflow: hidden;
@@ -477,9 +464,7 @@
     transform: scale(1);
 }
 
-/* ==================================================
-   QUOTE COMPARISON FACTORS
-================================================== */
+
 
 .home-quote {
     overflow: hidden;
@@ -600,9 +585,7 @@
     object-position: center;
 }
 
-/* ==================================================
-   SEASONAL HVAC READINESS STRIP
-================================================== */
+
 
 .home-seasonal {
     overflow: hidden;
@@ -702,9 +685,7 @@
     box-shadow: 0 3px 0 rgba(107, 26, 31, 0.34);
 }
 
-/* ==================================================
-   HOME FAQ
-================================================== */
+
 
 .home-faq {
     overflow: hidden;
@@ -789,9 +770,7 @@
     font-size: 0.98rem;
 }
 
-/* ==================================================
-   RESPONSIVE
-================================================== */
+
 
 @media (max-width: 1180px) {
     .home-comfort__answer {

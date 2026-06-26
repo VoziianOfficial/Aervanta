@@ -1,21 +1,12 @@
-/* ==================================================
-   AERVANTA SERVICES CSS
-   Shared styles for all individual service pages:
-   snapshot tabs, fit cards, matching rows,
-   black service icon strip, service FAQ.
-================================================== */
 
-/* ==================================================
-   SERVICE HERO
-================================================== */
+
+
 
 .service-hero .shared-hero__bg img {
     object-position: center;
 }
 
-/* ==================================================
-   SERVICE SNAPSHOT STRIP
-================================================== */
+
 
 .service-snapshot {
     overflow: hidden;
@@ -158,9 +149,7 @@
     }
 }
 
-/* ==================================================
-   WHEN THIS SERVICE MAY FIT
-================================================== */
+
 
 .service-fit {
     overflow: hidden;
@@ -270,9 +259,7 @@
     transform: translateY(-5px) rotate(-5deg);
 }
 
-/* ==================================================
-   COMBINED MATCHING PATH + PROVIDER COMPARISON
-================================================== */
+
 
 .service-match {
     overflow: hidden;
@@ -417,9 +404,7 @@
     transform: translateY(-5px) rotate(-5deg);
 }
 
-/* ==================================================
-   BLACK CLICKABLE SERVICE ICON STRIP
-================================================== */
+
 
 .service-page-icon-strip {
     padding: 28px 0;
@@ -441,9 +426,7 @@
     height: 48px;
 }
 
-/* ==================================================
-   SERVICE FAQ
-================================================== */
+
 
 .service-faq {
     overflow: hidden;
@@ -534,9 +517,7 @@
     font-size: 0.98rem;
 }
 
-/* ==================================================
-   SERVICE PAGE RESPONSIVE
-================================================== */
+
 
 @media (max-width: 1180px) {
     .service-snapshot__card {
@@ -679,7 +660,7 @@
     }
 }
 
-/* Service Fit cards — fixed photo background without breaking icons */
+
 .service-fit .service-fit-card {
     position: relative;
     overflow: hidden;
@@ -689,7 +670,7 @@
     background-repeat: no-repeat;
 }
 
-/* 3 different photos for the 3 cards */
+
 .service-fit .service-fit-card:nth-child(1) {
     background-image: url("../images/service-fit-1.jpg");
 }
@@ -702,7 +683,7 @@
     background-image: url("../images/service-fit-3.jpg");
 }
 
-/* black overlay */
+
 .service-fit .service-fit-card::after {
     content: "";
     position: absolute;
@@ -713,12 +694,12 @@
     pointer-events: none;
 }
 
-/* keep original red top line above overlay */
+
 .service-fit .service-fit-card::before {
     z-index: 2;
 }
 
-/* ONLY text above overlay — do not touch svg positioning */
+
 .service-fit .service-fit-card h3,
 .service-fit .service-fit-card p {
     position: relative;
@@ -730,7 +711,7 @@
     color: rgba(255, 255, 255, 0.82);
 }
 
-/* icon stays exactly where original CSS placed it */
+
 .service-fit .service-fit-card>svg {
     position: absolute;
     right: 24px;
@@ -739,12 +720,12 @@
     color: var(--color-red);
 }
 
-/* keep original hover accent color */
+
 .service-fit .service-fit-card:hover>svg {
     color: var(--color-orange);
 }
 
-/* keep photos on hover */
+
 .service-fit .service-fit-card:hover:nth-child(1) {
     background-image: url("../images/service-fit-1.jpg");
 }

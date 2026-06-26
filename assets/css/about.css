@@ -1,21 +1,12 @@
-/* ==================================================
-   AERVANTA ABOUT CSS
-   About-only sections:
-   Why Aervanta Exists, Platform Model,
-   Matching Principles, Trust Switcher, Unusual FAQ.
-================================================== */
 
-/* ==================================================
-   ABOUT HERO
-================================================== */
+
+
 
 .about-hero .shared-hero__bg img {
     object-position: center;
 }
 
-/* ==================================================
-   WHY AERVANTA EXISTS
-================================================== */
+
 
 .about-why {
     overflow: hidden;
@@ -66,9 +57,7 @@
     border-radius: 28px;
 }
 
-/* ==================================================
-   PLATFORM MODEL BREAKDOWN
-================================================== */
+
 
 .about-model {
     overflow: hidden;
@@ -153,9 +142,7 @@
     line-height: 1.35;
 }
 
-/* ==================================================
-   HOME COMFORT MATCHING PRINCIPLES
-================================================== */
+
 
 .about-principles {
     overflow: hidden;
@@ -254,9 +241,7 @@
     min-height: 210px;
 }
 
-/* ==================================================
-   TRUST WITHOUT FAKE CLAIMS
-================================================== */
+
 
 .about-trust {
     overflow: hidden;
@@ -384,9 +369,7 @@
     transform: rotate(-5deg) scale(1.05);
 }
 
-/* ==================================================
-   UNUSUAL ABOUT FAQ
-================================================== */
+
 
 .about-faq {
     overflow: hidden;
@@ -469,9 +452,7 @@
     font-size: 0.98rem;
 }
 
-/* ==================================================
-   RESPONSIVE
-================================================== */
+
 
 @media (max-width: 1180px) {
 
@@ -605,7 +586,7 @@
     }
 }
 
-/* Reduce only the card height in About principles section */
+
 .about-principles .about-principle-card {
     min-height: 160px;
     aspect-ratio: auto;
