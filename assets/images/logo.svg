@@ -1,0 +1,36 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Aervanta fan icon" role="img">
+    <defs>
+        <style>
+            .blade {
+                fill: #C7464D;
+                stroke: #0D0D0F;
+                stroke-width: 18;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+            }
+
+            .hub {
+                fill: #D57A3E;
+                stroke: #0D0D0F;
+                stroke-width: 14;
+            }
+        </style>
+
+        <path id="fan-blade" d="
+            M256 256
+            C238 218 222 179 225 136
+            C228 89 262 60 309 67
+            C355 74 391 103 414 143
+            C421 155 414 169 400 171
+            C358 178 326 186 306 214
+            C291 235 279 250 256 256Z
+        " />
+    </defs>
+
+    <use href="#fan-blade" class="blade" />
+    <use href="#fan-blade" class="blade" transform="rotate(90 256 256)" />
+    <use href="#fan-blade" class="blade" transform="rotate(180 256 256)" />
+    <use href="#fan-blade" class="blade" transform="rotate(270 256 256)" />
+
+    <circle class="hub" cx="256" cy="256" r="34" />
+</svg>

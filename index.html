@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aervanta | Independent HVAC Provider Matching</title>
+
+    <meta name="description"
+        content="Aervanta helps homeowners submit HVAC project details and compare available local provider options for heating, cooling, ventilation, maintenance, system replacement, and comfort requests.">
+    <meta name="theme-color" content="#0D0D0F">
+
+    <link rel="icon" href="assets/images/logo.svg" type="image/svg+xml">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <link rel="stylesheet" href="assets/css/global.css">
+    <link rel="stylesheet" href="assets/css/home.css">
+
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Aervanta",
+            "url": "https://example.com",
+            "description": "Independent HVAC provider-matching platform helping users compare available local provider options.",
+            "email": "hello@aervanta.com",
+            "telephone": "+18885550148"
+        }
+    </script>
+
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "Does Aervanta perform HVAC work directly?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "No. Aervanta is an independent HVAC provider-matching platform. It does not install, repair, inspect, diagnose, price, warrant, or perform HVAC work directly."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "What happens after I submit a request?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Your request details may be used to help connect you with participating independent HVAC providers. Provider availability may vary by location and project details."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Can I compare more than one provider option?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Where available, users may review and compare participating provider options before deciding whether to continue with any provider."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Who provides final pricing and scheduling?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Final pricing, scheduling, warranties, licenses, insurance, availability, and service terms are provided by participating independent providers."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "How do I know whether a provider serves my area?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Provider availability depends on location and request details. A participating provider may confirm whether they serve your area before any agreement is made."
+                    }
+                }
+            ]
+        }
+    </script>
+</head>
+
+<body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <main class="site-main" id="main-content">
+        <!-- Shared Hero -->
+        <section class="shared-hero home-hero" aria-labelledby="home-hero-title">
+            <div class="shared-hero__bg" aria-hidden="true">
+                <img src="assets/images/hero-home.jpg" alt="" width="1920" height="1080">
+            </div>
+
+            <div class="container-wide shared-hero__inner">
+                <div class="shared-hero__content" data-aos="fade-up">
+                    <p class="section-kicker section-kicker--light shared-hero__eyebrow">
+                        Independent HVAC provider-matching platform
+                    </p>
+
+                    <h1 class="shared-hero__title text-depth" id="home-hero-title">
+                        Comfort Match
+                    </h1>
+
+                    <p class="shared-hero__text">
+                        Submit HVAC project details and compare available local provider options for heating, cooling,
+                        ventilation, maintenance, system replacement, and comfort-related requests.
+                    </p>
+
+                    <div class="btn-row shared-hero__actions">
+                        <a class="btn btn--primary" href="contact.html">
+                            Start a Request
+                            <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+                        </a>
+
+                        <a class="btn btn--ghost-light" href="all-services.html">
+                            View Service Paths
+                            <i data-lucide="layout-grid" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="hero-card-row" data-hero-cards data-aos="fade-up" data-aos-delay="120"></div>
+            </div>
+        </section>
+
+        <!-- Shared Black Section Navigation Strip -->
+        <nav class="section-nav-strip" aria-label="Homepage section navigation" data-section-nav='[
+            {"label":"Comfort Selector","href":"#comfort-selector","icon":"sliders-horizontal"},
+            {"label":"Service Paths","href":"#service-paths","icon":"air-vent"},
+            {"label":"Compare Factors","href":"#quote-factors","icon":"list-checks"},
+            {"label":"FAQ","href":"#home-faq","icon":"circle-help"}
+        ]'></nav>
+
+        <!-- Comfort Situation Selector -->
+        <section class="home-comfort section section--light" id="comfort-selector" aria-labelledby="comfort-title">
+            <div class="container-wide">
+                <div class="section-head home-comfort__head">
+                    <div class="section-head__left" data-aos="fade-right">
+                        <p class="section-kicker">Comfort situation selector</p>
+                        <h2 class="section-title" id="comfort-title">
+                            Start with what your home feels like.
+                        </h2>
+                    </div>
+
+                    <div class="section-head__right" data-aos="fade-left">
+                        <p class="section-text">
+                            Choose the situation that sounds closest to your request. Aervanta does not diagnose the
+                            issue, but it can help organize your details toward a relevant HVAC service path.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="home-comfort__layout">
+                    <div class="home-comfort__visual image-frame" data-aos="zoom-in">
+                        <img src="assets/images/service-2.jpg" alt="Modern home HVAC vent and comfortable interior"
+                            loading="lazy" width="900" height="680" data-comfort-image>
+                    </div>
+
+                    <div class="home-comfort__cards" data-aos="fade-up" data-aos-delay="100">
+                        <button class="home-comfort__option is-active" type="button" data-comfort-option="cooling">
+                            <span>My home is not cooling</span>
+                            <i data-lucide="snowflake" aria-hidden="true"></i>
+                        </button>
+
+                        <button class="home-comfort__option" type="button" data-comfort-option="heating">
+                            <span>My home is not heating</span>
+                            <i data-lucide="flame" aria-hidden="true"></i>
+                        </button>
+
+                        <button class="home-comfort__option" type="button" data-comfort-option="replacement">
+                            <span>I need a new HVAC system</span>
+                            <i data-lucide="air-vent" aria-hidden="true"></i>
+                        </button>
+
+                        <button class="home-comfort__option" type="button" data-comfort-option="maintenance">
+                            <span>I want seasonal maintenance</span>
+                            <i data-lucide="settings" aria-hidden="true"></i>
+                        </button>
+
+                        <button class="home-comfort__option" type="button" data-comfort-option="airflow">
+                            <span>I have airflow issues</span>
+                            <i data-lucide="wind" aria-hidden="true"></i>
+                        </button>
+
+                        <button class="home-comfort__option" type="button" data-comfort-option="air-quality">
+                            <span>I want better indoor air quality</span>
+                            <i data-lucide="waves" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <article class="home-comfort__answer matte-card shine-surface" data-aos="fade-up" data-aos-delay="180">
+                    <div>
+                        <p class="home-comfort__answer-label">Suggested request path</p>
+                        <h3 data-comfort-title>Air Conditioning Services</h3>
+                    </div>
+
+                    <p data-comfort-text>
+                        This request may fit cooling-related provider options if your home feels warm, your AC system is
+                        not keeping up, or certain rooms feel uneven. A participating provider may review your details
+                        before offering final scope, availability, scheduling, pricing, and terms.
+                    </p>
+
+                    <a class="btn btn--primary" href="air-conditioning-services.html" data-comfort-link>
+                        Review this path
+                        <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+                    </a>
+                </article>
+            </div>
+        </section>
+
+        <!-- HVAC Service Paths -->
+        <section class="home-paths section section--soft" id="service-paths" aria-labelledby="service-paths-title">
+            <div class="container-wide">
+                <div class="home-paths__head" data-aos="fade-up">
+                    <p class="section-kicker">HVAC service paths</p>
+                    <h2 id="service-paths-title">
+                        Compare the right request category.
+                    </h2>
+                </div>
+
+                <div class="home-paths__grid">
+                    <a class="home-path-card" href="hvac-installation-replacement.html" data-aos="fade-up">
+                        <img src="assets/images/service-1.jpg" alt="HVAC system installation equipment" loading="lazy"
+                            width="620" height="520">
+                        <span class="home-path-card__overlay"></span>
+                        <span class="home-path-card__content">
+                            <span class="home-path-card__label">System planning</span>
+                            <strong>HVAC Installation & Replacement</strong>
+                            <span>Compare provider options for system replacement, installation requests, and comfort
+                                upgrades.</span>
+                        </span>
+                        <i data-lucide="air-vent" aria-hidden="true"></i>
+                    </a>
+
+                    <a class="home-path-card" href="air-conditioning-services.html" data-aos="fade-up"
+                        data-aos-delay="80">
+                        <img src="assets/images/service-2.jpg" alt="Air conditioning vent in a clean modern home"
+                            loading="lazy" width="620" height="520">
+                        <span class="home-path-card__overlay"></span>
+                        <span class="home-path-card__content">
+                            <span class="home-path-card__label">Cooling requests</span>
+                            <strong>Air Conditioning Services</strong>
+                            <span>Find provider options for AC-related requests, uneven cooling, and warm-air
+                                concerns.</span>
+                        </span>
+                        <i data-lucide="snowflake" aria-hidden="true"></i>
+                    </a>
+
+                    <a class="home-path-card" href="heating-furnace-services.html" data-aos="fade-up"
+                        data-aos-delay="160">
+                        <img src="assets/images/service-3.jpg" alt="Heating system control and warm home interior"
+                            loading="lazy" width="620" height="520">
+                        <span class="home-path-card__overlay"></span>
+                        <span class="home-path-card__content">
+                            <span class="home-path-card__label">Heating requests</span>
+                            <strong>Heating & Furnace Services</strong>
+                            <span>Compare provider options for furnace, heating, warmth, and winter readiness
+                                requests.</span>
+                        </span>
+                        <i data-lucide="flame" aria-hidden="true"></i>
+                    </a>
+
+                    <a class="home-path-card" href="indoor-air-quality-ventilation.html" data-aos="fade-up"
+                        data-aos-delay="240">
+                        <img src="assets/images/service-6.jpg" alt="Ventilation grille and bright indoor air flow"
+                            loading="lazy" width="620" height="520">
+                        <span class="home-path-card__overlay"></span>
+                        <span class="home-path-card__content">
+                            <span class="home-path-card__label">Airflow comfort</span>
+                            <strong>Indoor Air Quality & Ventilation</strong>
+                            <span>Explore provider options for airflow, ventilation, filtration, and indoor comfort
+                                requests.</span>
+                        </span>
+                        <i data-lucide="wind" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Aervanta Platform Difference -->
+        <section class="home-difference section section--white" id="platform-difference"
+            aria-label="Aervanta platform difference">
+            <div class="container-wide">
+                <div class="home-difference__line" aria-hidden="true"></div>
+
+                <div class="home-difference__grid">
+                    <article class="home-hex" data-aos="zoom-in">
+                        <div class="home-hex__shape">
+                            <i data-lucide="clipboard-edit" aria-hidden="true"></i>
+                            <div class="home-hex__text">
+                                <h3>Submit Details</h3>
+                                <p>Share your HVAC request details through a structured request path.</p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="home-hex" data-aos="zoom-in" data-aos-delay="80">
+                        <div class="home-hex__shape">
+                            <i data-lucide="network" aria-hidden="true"></i>
+                            <div class="home-hex__text">
+                                <h3>Match Options</h3>
+                                <p>Review available participating provider options where matching is available.</p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="home-hex" data-aos="zoom-in" data-aos-delay="160">
+                        <div class="home-hex__shape">
+                            <i data-lucide="scale" aria-hidden="true"></i>
+                            <div class="home-hex__text">
+                                <h3>Compare Terms</h3>
+                                <p>Compare scope, availability, provider terms, and final quote details.</p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="home-hex" data-aos="zoom-in" data-aos-delay="240">
+                        <div class="home-hex__shape">
+                            <i data-lucide="badge-check" aria-hidden="true"></i>
+                            <div class="home-hex__text">
+                                <h3>Choose Provider</h3>
+                                <p>Choose whether to continue with any participating independent provider.</p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quote Comparison Factors -->
+        <section class="home-quote section section--light" id="quote-factors" aria-labelledby="quote-factors-title">
+            <div class="container-wide">
+                <div class="home-quote__split">
+                    <div class="home-quote__dark" data-aos="fade-right">
+                        <img src="assets/images/service-4.jpg" alt="" loading="lazy" width="900" height="650">
+                        <div class="home-quote__dark-content">
+                            <p class="section-kicker section-kicker--light">Comparison factors</p>
+                            <h2 id="quote-factors-title">
+                                What may shape provider quotes?
+                            </h2>
+                            <p>
+                                Aervanta does not set pricing. Participating providers may consider several details
+                                before discussing final scope, availability, schedule, warranties, and terms.
+                            </p>
+
+                            <ul class="home-quote__list">
+                                <li><i data-lucide="ruler" aria-hidden="true"></i> System type and home size</li>
+                                <li><i data-lucide="target" aria-hidden="true"></i> Equipment or comfort goal</li>
+                                <li><i data-lucide="timer" aria-hidden="true"></i> Response time and availability</li>
+                                <li><i data-lucide="settings-2" aria-hidden="true"></i> Maintenance or replacement scope
+                                </li>
+                                <li><i data-lucide="file-check-2" aria-hidden="true"></i> Provider terms and warranties
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="home-quote__photo image-frame" data-aos="fade-left">
+                        <img src="assets/images/service-5.jpg"
+                            alt="HVAC maintenance checklist and home comfort controls" loading="lazy" width="900"
+                            height="650">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seasonal HVAC Readiness Strip -->
+        <section class="home-seasonal section section--soft" id="seasonal-readiness" aria-labelledby="seasonal-title">
+            <div class="container-wide">
+                <div class="section-head">
+                    <div class="section-head__left" data-aos="fade-right">
+                        <p class="section-kicker">Seasonal readiness</p>
+                        <h2 id="seasonal-title">
+                            Prepare before comfort becomes urgent.
+                        </h2>
+                    </div>
+
+                    <div class="section-head__right" data-aos="fade-left">
+                        <p class="section-text">
+                            HVAC requests often become easier to compare when details are organized before extreme
+                            weather, aging equipment, or high energy bills force quick decisions.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="home-seasonal__layout">
+                    <div class="home-seasonal__photo image-frame" data-aos="zoom-in">
+                        <img src="assets/images/service-3.jpg" alt="Modern home heating and cooling control"
+                            loading="lazy" width="760" height="560">
+                    </div>
+
+                    <div class="home-seasonal__slider-wrap" data-aos="fade-up">
+                        <div class="swiper home-seasonal__swiper" data-seasonal-swiper>
+                            <div class="swiper-wrapper">
+                                <article class="swiper-slide home-seasonal-card">
+                                    <i data-lucide="sun" aria-hidden="true"></i>
+                                    <h3>Before summer cooling season</h3>
+                                    <p>
+                                        A cooling request may be easier to compare before temperatures rise. Providers
+                                        may review AC age, airflow notes, and service availability.
+                                    </p>
+                                </article>
+
+                                <article class="swiper-slide home-seasonal-card">
+                                    <i data-lucide="snowflake" aria-hidden="true"></i>
+                                    <h3>Before winter heating season</h3>
+                                    <p>
+                                        Heating-related requests may include warmth concerns, furnace notes, comfort
+                                        goals, and provider-specific scheduling options.
+                                    </p>
+                                </article>
+
+                                <article class="swiper-slide home-seasonal-card">
+                                    <i data-lucide="receipt-text" aria-hidden="true"></i>
+                                    <h3>After unusually high energy bills</h3>
+                                    <p>
+                                        Homeowners often use this moment to compare maintenance, equipment, airflow, or
+                                        upgrade-related provider options.
+                                    </p>
+                                </article>
+
+                                <article class="swiper-slide home-seasonal-card">
+                                    <i data-lucide="refresh-cw" aria-hidden="true"></i>
+                                    <h3>Before replacing an aging system</h3>
+                                    <p>
+                                        Replacement requests may involve system type, property size, comfort needs,
+                                        equipment preferences, and final provider terms.
+                                    </p>
+                                </article>
+                            </div>
+                        </div>
+
+                        <div class="home-seasonal__controls">
+                            <button class="home-seasonal__arrow" type="button" data-seasonal-prev
+                                aria-label="Previous seasonal scenario">
+                                <i data-lucide="arrow-left" aria-hidden="true"></i>
+                            </button>
+
+                            <button class="home-seasonal__arrow" type="button" data-seasonal-next
+                                aria-label="Next seasonal scenario">
+                                <i data-lucide="arrow-right" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="home-faq section section--white" id="home-faq" aria-labelledby="home-faq-title">
+            <div class="container-wide">
+                <div class="home-faq__layout">
+                    <div class="home-faq__intro" data-aos="fade-right">
+                        <p class="section-kicker">FAQ</p>
+                        <h2 id="home-faq-title">
+                            Clear answers without contractor claims.
+                        </h2>
+                        <p>
+                            Aervanta is built around transparency: it helps users organize HVAC requests and compare
+                            provider options, but independent providers supply final details.
+                        </p>
+                    </div>
+
+                    <div class="home-faq__accordion" data-accordion data-aos="fade-left">
+                        <div class="accordion-item home-faq__item">
+                            <button class="accordion-trigger" type="button" aria-expanded="true"
+                                aria-controls="home-faq-1" data-accordion-trigger>
+                                <span>Does Aervanta perform HVAC work directly?</span>
+                                <i data-lucide="plus" aria-hidden="true"></i>
+                            </button>
+                            <div class="accordion-panel is-open" id="home-faq-1">
+                                <div class="accordion-panel__inner">
+                                    <p>
+                                        No. Aervanta is an independent HVAC provider-matching platform. It does not
+                                        install, repair, inspect, diagnose, price, warrant, or perform HVAC work
+                                        directly.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item home-faq__item">
+                            <button class="accordion-trigger" type="button" aria-expanded="false"
+                                aria-controls="home-faq-2" data-accordion-trigger>
+                                <span>What happens after I submit a request?</span>
+                                <i data-lucide="plus" aria-hidden="true"></i>
+                            </button>
+                            <div class="accordion-panel" id="home-faq-2">
+                                <div class="accordion-panel__inner">
+                                    <p>
+                                        Your request details may be used to help connect you with participating
+                                        independent HVAC providers. Provider availability may vary by location and
+                                        project details.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item home-faq__item">
+                            <button class="accordion-trigger" type="button" aria-expanded="false"
+                                aria-controls="home-faq-3" data-accordion-trigger>
+                                <span>Can I compare more than one provider option?</span>
+                                <i data-lucide="plus" aria-hidden="true"></i>
+                            </button>
+                            <div class="accordion-panel" id="home-faq-3">
+                                <div class="accordion-panel__inner">
+                                    <p>
+                                        Where available, users may review and compare participating provider options
+                                        before deciding whether to continue with any provider.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item home-faq__item">
+                            <button class="accordion-trigger" type="button" aria-expanded="false"
+                                aria-controls="home-faq-4" data-accordion-trigger>
+                                <span>Who provides final pricing and scheduling?</span>
+                                <i data-lucide="plus" aria-hidden="true"></i>
+                            </button>
+                            <div class="accordion-panel" id="home-faq-4">
+                                <div class="accordion-panel__inner">
+                                    <p>
+                                        Final pricing, scheduling, warranties, licenses, insurance, availability, and
+                                        service terms are provided by participating independent providers.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item home-faq__item">
+                            <button class="accordion-trigger" type="button" aria-expanded="false"
+                                aria-controls="home-faq-5" data-accordion-trigger>
+                                <span>How do I know whether a provider serves my area?</span>
+                                <i data-lucide="plus" aria-hidden="true"></i>
+                            </button>
+                            <div class="accordion-panel" id="home-faq-5">
+                                <div class="accordion-panel__inner">
+                                    <p>
+                                        Provider availability depends on location and request details. A participating
+                                        provider may confirm whether they serve your area before any agreement is made.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Shared final CTA is injected by global.js before footer -->
+    </main>
+
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+    <script src="assets/js/config.js" defer></script>
+    <script src="assets/js/global.js" defer></script>
+    <script src="assets/js/home.js" defer></script>
+</body>
+
+</html>
