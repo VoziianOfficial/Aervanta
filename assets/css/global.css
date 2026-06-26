@@ -767,7 +767,7 @@ p {
     position: absolute;
     top: calc(100% + 14px);
     left: 50%;
-    width: 330px;
+    width: min(420px, calc(100vw - 32px));
     padding: 12px;
     border: 1px solid rgba(13, 13, 15, 0.1);
     border-radius: 22px;
@@ -804,14 +804,24 @@ p {
 .services-dropdown__link {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 14px;
+    justify-content: flex-start;
+    gap: 10px;
     padding: 12px 13px;
     border-radius: 14px;
     color: var(--color-charcoal);
     font-size: 0.9rem;
     font-weight: 820;
+    white-space: nowrap;
     transition: background var(--transition), color var(--transition), transform var(--transition);
+}
+
+.services-dropdown__link span {
+    min-width: 0;
+    flex: 1 1 auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: left;
 }
 
 .services-dropdown__link svg {
@@ -819,6 +829,10 @@ p {
     height: 18px;
     color: var(--color-red);
     flex: 0 0 auto;
+}
+
+.services-dropdown__link svg:last-child {
+    margin-left: auto;
 }
 
 .services-dropdown__link:hover {
@@ -2084,4 +2098,3 @@ p {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
-
