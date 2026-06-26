@@ -592,33 +592,84 @@
     }
 
     function setupAccordions(root = document) {
+        const escapeSelector = (value) => {
+            if (window.CSS && typeof window.CSS.escape === 'function') {
+                return window.CSS.escape(value);
+            }
+
+            return String(value).replace(/["\\#.:\\[\\]\\s]/g, '\\$&');
+        };
+
+        const getPanel = (accordion, trigger) => {
+            const panelId = trigger.getAttribute('aria-controls');
+
+            if (!panelId) return null;
+
+            return accordion.querySelector(`#${escapeSelector(panelId)}`);
+        };
+
+        const getItem = (trigger) => trigger.closest('[data-accordion-item], .accordion-item, [data-service-panel]');
+
+        const setExpandedState = (trigger, panel, open) => {
+            trigger.setAttribute('aria-expanded', open ? 'true' : 'false');
+            panel?.classList.toggle('is-open', open);
+            getItem(trigger)?.classList.toggle('is-open', open);
+        };
+
         root.querySelectorAll(SELECTORS.accordion).forEach((accordion) => {
-            const triggers = accordion.querySelectorAll('[data-accordion-trigger]');
+            const triggers = Array.from(accordion.querySelectorAll('[data-accordion-trigger]'));
+            const allowMultiple = accordion.dataset.accordion === 'multiple';
+
+            if (!triggers.length) return;
 
             triggers.forEach((trigger) => {
-                const panelId = trigger.getAttribute('aria-controls');
-                const panel = panelId ? document.getElementById(panelId) : null;
+                const panel = getPanel(accordion, trigger);
 
                 if (!panel) return;
 
+                const shouldOpen = trigger.getAttribute('aria-expanded') === 'true' || panel.classList.contains('is-open');
+                setExpandedState(trigger, panel, shouldOpen);
+
+                if (trigger.dataset.accordionReady === 'true') return;
+
+                trigger.dataset.accordionReady = 'true';
+
                 trigger.addEventListener('click', () => {
-                    const allowMultiple = accordion.dataset.accordion === 'multiple';
                     const isOpen = trigger.getAttribute('aria-expanded') === 'true';
 
                     if (!allowMultiple) {
                         triggers.forEach((otherTrigger) => {
-                            const otherPanelId = otherTrigger.getAttribute('aria-controls');
-                            const otherPanel = otherPanelId ? document.getElementById(otherPanelId) : null;
-
-                            otherTrigger.setAttribute('aria-expanded', 'false');
-                            otherPanel?.classList.remove('is-open');
+                            const otherPanel = getPanel(accordion, otherTrigger);
+                            setExpandedState(otherTrigger, otherPanel, false);
                         });
                     }
 
-                    trigger.setAttribute('aria-expanded', String(!isOpen));
-                    panel.classList.toggle('is-open', !isOpen);
+                    if (allowMultiple && isOpen) {
+                        setExpandedState(trigger, panel, false);
+                        return;
+                    }
+
+                    setExpandedState(trigger, panel, !isOpen);
                 });
             });
+
+            if (!allowMultiple) {
+                let foundOpen = false;
+
+                triggers.forEach((trigger) => {
+                    const panel = getPanel(accordion, trigger);
+                    const isOpen = trigger.getAttribute('aria-expanded') === 'true';
+
+                    if (isOpen && !foundOpen) {
+                        foundOpen = true;
+                        return;
+                    }
+
+                    if (isOpen) {
+                        setExpandedState(trigger, panel, false);
+                    }
+                });
+            }
         });
     }
 
