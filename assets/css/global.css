@@ -1802,14 +1802,59 @@ p {
 }
 
 /* ==================================================
-   AOS / MOTION
+   REVEAL / MOTION
 ================================================== */
 
-[data-aos] {
-    pointer-events: auto;
+.reveal {
+    --reveal-transform: translateY(18px);
+}
+
+.reveal-enabled [data-aos],
+.reveal-enabled .reveal {
+    opacity: 0;
+    transform: var(--reveal-transform);
+    transition:
+        opacity 700ms cubic-bezier(0.22, 1, 0.36, 1),
+        transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+    transition-delay: var(--reveal-delay, 0ms);
+    will-change: opacity, transform;
+}
+
+.reveal-enabled [data-aos].is-visible,
+.reveal-enabled .reveal.is-visible {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+}
+
+.reveal-up {
+    --reveal-transform: translateY(18px);
+}
+
+.reveal-left {
+    --reveal-transform: translateX(-18px);
+}
+
+.reveal-right {
+    --reveal-transform: translateX(18px);
+}
+
+.reveal-fade {
+    --reveal-transform: none;
+}
+
+.reveal-stagger > * {
+    --reveal-delay: 0ms;
 }
 
 @media (prefers-reduced-motion: reduce) {
+
+    .reveal-enabled [data-aos],
+    .reveal-enabled .reveal {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+        will-change: auto !important;
+    }
 
     *,
     *::before,

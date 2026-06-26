@@ -145,12 +145,6 @@
         initSeasonalSwiper();
         initPathCardKeyboard();
         refreshIcons();
-
-        window.setTimeout(() => {
-            if (window.AOS && typeof window.AOS.refreshHard === 'function') {
-                window.AOS.refreshHard();
-            }
-        }, 500);
     }
 
     document.addEventListener('DOMContentLoaded', initHome);

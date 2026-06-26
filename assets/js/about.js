@@ -75,12 +75,6 @@
         if (window.Aervanta && typeof window.Aervanta.setupCounters === 'function') {
             window.Aervanta.setupCounters(document);
         }
-
-        window.setTimeout(() => {
-            if (window.AOS && typeof window.AOS.refreshHard === 'function') {
-                window.AOS.refreshHard();
-            }
-        }, 500);
     }
 
     document.addEventListener('DOMContentLoaded', initAbout);

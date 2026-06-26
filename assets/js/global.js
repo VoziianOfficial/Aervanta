@@ -1,6 +1,8 @@
 'use strict';
 
 (function () {
+    document.documentElement.classList.add('reveal-enabled');
+
     const config = window.AERVANTA_CONFIG || {};
 
     const SELECTORS = {
@@ -16,7 +18,8 @@
 
     const state = {
         mobileMenuOpen: false,
-        dropdownTimer: null
+        dropdownTimer: null,
+        revealObserver: null
     };
 
     function getValue(path, fallback = '') {
@@ -829,22 +832,113 @@
         }
     }
 
-    function initAos() {
-        if (window.AOS && typeof window.AOS.init === 'function') {
-            window.AOS.init({
-                duration: 720,
-                easing: 'ease-out-cubic',
-                once: true,
-                offset: 80,
-                mirror: false
-            });
+    function initRevealAnimations(root = document) {
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const revealTargets = [
+            { selector: '[data-aos]', variant: 'auto' },
+            { selector: '.shared-final-cta__card', variant: 'reveal-fade' },
+            { selector: '.site-footer__top', variant: 'reveal-fade' },
+            { selector: '.site-footer__bottom', variant: 'reveal-fade' },
+            { selector: '.cookie-banner__inner', variant: 'reveal-fade' }
+        ];
+        const staggerGroups = [
+            '.hero-card-row',
+            '.home-paths__grid',
+            '.home-comfort__cards',
+            '.about-principles__grid',
+            '.problem-guide__grid',
+            '.contact-options__grid',
+            '.after-submit__grid',
+            '.compare-before__column',
+            '.dark-icon-strip__grid',
+            '.section-nav-strip__inner',
+            '.service-fit__grid',
+            '.service-accordion',
+            '.home-faq__accordion',
+            '.about-faq__accordion',
+            '.service-faq__accordion'
+        ];
 
-            window.setTimeout(() => {
-                if (typeof window.AOS.refreshHard === 'function') {
-                    window.AOS.refreshHard();
-                }
-            }, 450);
+        const resolveVariant = (element, preferred = 'reveal-up') => {
+            if (preferred !== 'auto') return preferred;
+
+            const aos = (element.getAttribute('data-aos') || '').trim();
+
+            if (aos === 'fade-right') return 'reveal-left';
+            if (aos === 'fade-left') return 'reveal-right';
+            if (aos === 'fade-up') return 'reveal-up';
+            if (aos === 'fade-down') return 'reveal-fade';
+            if (aos === 'zoom-in') return 'reveal-fade';
+
+            return 'reveal-up';
+        };
+
+        const prepareReveal = (element, variant = 'reveal-up', delay = null) => {
+            if (!element) return;
+
+            if (element.dataset.revealReady !== 'true') {
+                element.dataset.revealReady = 'true';
+                element.classList.add('reveal', variant);
+            }
+
+            if (delay !== null && !element.style.getPropertyValue('--reveal-delay')) {
+                element.style.setProperty('--reveal-delay', `${Math.min(Math.max(delay, 0), 350)}ms`);
+            }
+
+            if (prefersReducedMotion) {
+                element.classList.add('is-visible');
+            }
+        };
+
+        revealTargets.forEach(({ selector, variant }) => {
+            root.querySelectorAll(selector).forEach((element) => {
+                const delayValue = Number(element.getAttribute('data-aos-delay') || '0');
+                prepareReveal(element, resolveVariant(element, variant), Number.isFinite(delayValue) ? delayValue : null);
+            });
+        });
+
+        staggerGroups.forEach((selector) => {
+            root.querySelectorAll(selector).forEach((group) => {
+                group.classList.add('reveal-stagger');
+
+                Array.from(group.children).forEach((child, index) => {
+                    const delayValue = child.hasAttribute('data-aos-delay') ? Number(child.getAttribute('data-aos-delay') || '0') : index * 70;
+                    prepareReveal(child, resolveVariant(child, 'auto'), Number.isFinite(delayValue) ? delayValue : index * 70);
+                });
+            });
+        });
+
+        const pending = Array.from(root.querySelectorAll('.reveal'))
+            .filter((element) => !element.classList.contains('is-visible'));
+
+        if (!pending.length || prefersReducedMotion) return;
+
+        if (!('IntersectionObserver' in window)) {
+            pending.forEach((element) => element.classList.add('is-visible'));
+            return;
         }
+
+        if (!state.revealObserver) {
+            state.revealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach((entry) => {
+                    if (!entry.isIntersecting) return;
+
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                    entry.target.dataset.revealObserved = 'true';
+                });
+            }, {
+                threshold: 0.14,
+                rootMargin: '0px 0px -8% 0px'
+            });
+        }
+
+        pending.forEach((element) => {
+            if (element.dataset.revealObserved === 'true') return;
+
+            state.revealObserver.observe(element);
+            element.dataset.revealObserved = 'true';
+        });
     }
 
     function exposeHelpers() {
@@ -855,6 +949,7 @@
             safeUrl,
             icon,
             refreshIcons,
+            initRevealAnimations,
             setupAccordions,
             setupCounters,
             renderDarkServiceIconStrips,
@@ -884,7 +979,7 @@
         setupSmoothAnchors();
 
         refreshIcons();
-        initAos();
+        initRevealAnimations();
         exposeHelpers();
 
         window.addEventListener('scroll', updateHeaderState, { passive: true });
