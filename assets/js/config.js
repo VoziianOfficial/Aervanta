@@ -105,7 +105,7 @@ window.AERVANTA_CONFIG = {
             file: 'air-conditioning-services.html',
             icon: 'snowflake',
             image: 'assets/images/service-2.jpg',
-            heroImage: 'assets/images/hero-air-conditioning.jpg',
+            heroImage: 'assets/images/hero-contact.jpg',
             heroTitle: 'Cooling Options',
             description: 'Find provider options for AC-related requests, cooling concerns, and air conditioning service needs.',
             focus: 'Cooling issues, AC service requests, warm air from vents, uneven cooling, and AC-related provider options.'

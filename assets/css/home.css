@@ -676,7 +676,6 @@
     border-radius: 15px;
     background: var(--color-white);
     color: var(--color-charcoal);
-    box-shadow: 0 7px 0 rgba(13, 13, 15, 0.1);
     transition:
         transform var(--transition),
         box-shadow var(--transition),
