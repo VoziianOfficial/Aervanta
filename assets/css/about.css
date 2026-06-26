@@ -604,3 +604,14 @@
         padding: 24px;
     }
 }
+
+/* Reduce only the card height in About principles section */
+.about-principles .about-principle-card {
+    min-height: 160px;
+    aspect-ratio: auto;
+}
+
+.about-principles .about-principle-card--wide {
+    min-height: 160px;
+}
+
