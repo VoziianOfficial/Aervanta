@@ -431,37 +431,199 @@
         });
     }
 
-    function injectConfigValues() {
-        document.querySelectorAll('[data-config]').forEach((element) => {
+    function injectConfigValues(root = document) {
+        const editableValues = {
+            brandName: getValue('brand.name', 'Aervanta'),
+            brandTagline: getValue('brand.tagline', 'Independent HVAC Provider Matching'),
+
+            companyName: getValue('company.name', 'Aervanta'),
+            companyLegalName: getValue('company.legalName', getValue('company.name', 'Aervanta')),
+            companyId: getValue('company.companyId', 'AER-HVAC-2048'),
+            address: getValue('company.address', 'USA Service Area'),
+            serviceArea: getValue('company.serviceArea', 'Independent HVAC provider.'),
+
+            phoneRaw: getValue('contact.phoneRaw', '+18885550148'),
+            phoneDisplay: getValue('contact.phoneDisplay', '(888) 555-0148'),
+            email: getValue('contact.email', 'hello@aervanta.com'),
+            supportHours: getValue('contact.supportHours', 'Mon–Fri, 8:00 AM–7:00 PM'),
+            phoneButtonText: getValue('contact.phoneButtonText', 'Start Request'),
+
+            footerDescription: getValue('footer.description', ''),
+            footerCopyright: getValue('footer.copyright', ''),
+
+            legalDisclaimer: getValue('legal.disclaimer', '')
+        };
+
+        const replacements = [
+            ['Aervanta', editableValues.brandName],
+            ['AERVANTA', editableValues.brandName.toUpperCase()],
+            ['Independent HVAC Provider Matching', editableValues.brandTagline],
+
+            ['AER-HVAC-2048', editableValues.companyId],
+            ['USA Service Area', editableValues.address],
+            ['Independent HVAC provider matching across selected service areas', editableValues.serviceArea],
+            ['Independent HVAC provider.', editableValues.serviceArea],
+
+            ['+18885550148', editableValues.phoneRaw],
+            ['(888) 555-0148', editableValues.phoneDisplay],
+            ['hello@aervanta.com', editableValues.email],
+            ['Mon–Fri, 8:00 AM–7:00 PM', editableValues.supportHours],
+
+            ['© 2026 Aervanta. All rights reserved.', editableValues.footerCopyright],
+
+            [
+                'Disclaimer: This site is a free service to assist homeowners in connecting with local service providers. All contractors/providers are independent and this site does not warrant or guarantee any work performed. It is the responsibility of the homeowner to verify that the hired contractor furnishes the necessary license and insurance required for the work being performed. All persons depicted in a photo or video are actors or models and not contractors listed on this site.',
+                editableValues.legalDisclaimer
+            ]
+        ].filter(([oldValue, newValue]) => oldValue && newValue && oldValue !== newValue);
+
+        function replaceKnownValues(value) {
+            if (typeof value !== 'string' || !value) return value;
+
+            let result = value;
+
+            replacements.forEach(([oldValue, newValue]) => {
+                result = result.split(oldValue).join(newValue);
+            });
+
+            return result;
+        }
+
+    
+
+        root.querySelectorAll('[data-config]').forEach((element) => {
             const value = getValue(element.dataset.config, element.textContent);
-            element.textContent = value;
+
+            if (
+                element instanceof HTMLInputElement ||
+                element instanceof HTMLTextAreaElement ||
+                element instanceof HTMLSelectElement
+            ) {
+                element.value = value;
+            } else {
+                element.textContent = value;
+            }
         });
 
-        document.querySelectorAll('[data-config-href]').forEach((element) => {
+        root.querySelectorAll('[data-phone-link]').forEach((element) => {
+            element.setAttribute('href', `tel:${editableValues.phoneRaw}`);
+            element.setAttribute('aria-label', `Call ${editableValues.brandName}`);
+        });
+
+        root.querySelectorAll('[data-email-link]').forEach((element) => {
+            element.setAttribute('href', `mailto:${editableValues.email}`);
+            element.setAttribute('aria-label', `Email ${editableValues.brandName}`);
+        });
+
+        root.querySelectorAll('[data-address-link]').forEach((element) => {
+            element.setAttribute(
+                'href',
+                `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(editableValues.address)}`
+            );
+            element.setAttribute('target', '_blank');
+            element.setAttribute('rel', 'noopener noreferrer');
+        });
+
+        root.querySelectorAll('[data-config-href]').forEach((element) => {
             const type = element.dataset.configHref;
             const value = getValue(element.dataset.configValue || '', '');
 
             if (type === 'phone') {
-                element.setAttribute('href', `tel:${value}`);
+                element.setAttribute('href', `tel:${value || editableValues.phoneRaw}`);
             }
 
             if (type === 'email') {
-                element.setAttribute('href', `mailto:${value}`);
+                element.setAttribute('href', `mailto:${value || editableValues.email}`);
             }
 
             if (type === 'map') {
-                element.setAttribute('href', `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(value)}`);
+                const address = value || editableValues.address;
+
+                element.setAttribute(
+                    'href',
+                    `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`
+                );
                 element.setAttribute('target', '_blank');
-                element.setAttribute('rel', 'noopener');
+                element.setAttribute('rel', 'noopener noreferrer');
             }
         });
 
-        document.querySelectorAll('[data-phone-link]').forEach((element) => {
-            element.setAttribute('href', `tel:${config.contact?.phoneRaw || ''}`);
+
+        root.querySelectorAll('a[href^="tel:"]').forEach((link) => {
+            link.setAttribute('href', `tel:${editableValues.phoneRaw}`);
         });
 
-        document.querySelectorAll('[data-email-link]').forEach((element) => {
-            element.setAttribute('href', `mailto:${config.contact?.email || ''}`);
+        root.querySelectorAll('a[href^="mailto:"]').forEach((link) => {
+            link.setAttribute('href', `mailto:${editableValues.email}`);
+        });
+
+
+        const ignoredTags = new Set([
+            'SCRIPT',
+            'STYLE',
+            'NOSCRIPT',
+            'TEXTAREA',
+            'INPUT',
+            'SELECT',
+            'OPTION',
+            'SVG',
+            'PATH'
+        ]);
+
+        const walker = document.createTreeWalker(
+            root.body || root,
+            NodeFilter.SHOW_TEXT,
+            {
+                acceptNode(node) {
+                    const parent = node.parentElement;
+
+                    if (!parent || ignoredTags.has(parent.tagName)) {
+                        return NodeFilter.FILTER_REJECT;
+                    }
+
+                    if (!node.nodeValue || !node.nodeValue.trim()) {
+                        return NodeFilter.FILTER_REJECT;
+                    }
+
+                    return NodeFilter.FILTER_ACCEPT;
+                }
+            }
+        );
+
+        const textNodes = [];
+
+        while (walker.nextNode()) {
+            textNodes.push(walker.currentNode);
+        }
+
+        textNodes.forEach((node) => {
+            node.nodeValue = replaceKnownValues(node.nodeValue);
+        });
+
+      
+
+        root.querySelectorAll('*').forEach((element) => {
+            ['aria-label', 'title', 'alt', 'placeholder', 'value'].forEach((attr) => {
+                if (!element.hasAttribute(attr)) return;
+
+                const currentValue = element.getAttribute(attr);
+                const newValue = replaceKnownValues(currentValue);
+
+                if (newValue !== currentValue) {
+                    element.setAttribute(attr, newValue);
+                }
+            });
+        });
+
+
+        document.title = replaceKnownValues(document.title);
+
+        document.querySelectorAll('meta[name="description"], meta[property="og:title"], meta[property="og:description"]').forEach((meta) => {
+            const content = meta.getAttribute('content');
+
+            if (content) {
+                meta.setAttribute('content', replaceKnownValues(content));
+            }
         });
     }
 
@@ -949,6 +1111,7 @@
             safeUrl,
             icon,
             refreshIcons,
+            injectConfigValues,
             initRevealAnimations,
             setupAccordions,
             setupCounters,

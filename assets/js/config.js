@@ -149,7 +149,7 @@ window.AERVANTA_CONFIG = {
             file: 'indoor-air-quality-ventilation.html',
             icon: 'wind',
             image: 'assets/images/service-6.jpg',
-            heroImage: 'assets/images/hero-air-quality.jpg',
+            heroImage: 'assets/images/hero-service.jpg',
             heroTitle: 'Air Quality',
             description: 'Explore provider options for ventilation, airflow, filtration, and indoor air comfort needs.',
             focus: 'Airflow, ventilation, filtration, humidity comfort, and indoor air provider options without medical claims.'
