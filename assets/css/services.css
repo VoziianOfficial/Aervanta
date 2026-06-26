@@ -745,7 +745,7 @@
 }
 
 
-/* Service Match — real height reduction */
+
 @media (min-width: 1181px) {
     .service-match .service-match-row {
         align-items: stretch;
@@ -801,5 +801,50 @@
     .service-match .service-match-row__list {
         margin-top: 12px;
         gap: 6px;
+    }
+}
+
+@media (max-width: 1180px) {
+    .service-match .service-match-row__photo {
+        aspect-ratio: auto !important;
+        min-height: 0 !important;
+        height: 280px !important;
+    }
+
+    .service-match .service-match-row__photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .service-match .service-match-row__card {
+        min-height: 0 !important;
+        height: auto !important;
+        padding: 26px;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 560px) {
+    .service-match .service-match-row__photo {
+        height: 230px !important;
+    }
+
+    .service-match .service-match-row__card {
+        padding: 22px;
+    }
+}
+
+@media (max-width: 768px) {
+    .service-match .service-match-row__card>svg {
+        display: none !important;
+    }
+
+    .service-match .service-match-row__card {
+        padding-top: 24px;
+    }
+
+    .service-match .service-match-row__card::before {
+        top: 16px;
     }
 }
