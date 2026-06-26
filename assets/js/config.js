@@ -13,7 +13,7 @@ window.AERVANTA_CONFIG = {
         legalName: 'Aervanta',
         companyId: 'AER-HVAC-2048',
         address: 'USA Service Area',
-        serviceArea: 'Independent HVAC provider matching across selected service areas'
+        serviceArea: 'Independent HVAC provider.',
     },
 
     contact: {

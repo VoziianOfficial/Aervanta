@@ -271,7 +271,6 @@
     border: 1px solid rgba(13, 13, 15, 0.1);
     border-radius: 30px;
     background: var(--color-white);
-    box-shadow: 0 18px 46px rgba(13, 13, 15, 0.08);
 }
 
 .provider-card svg {
@@ -558,4 +557,30 @@
     .compare-before__item {
         align-items: flex-start;
     }
+}
+
+
+/* Compare Before You Choose — background photo with black overlay */
+.compare-before {
+    position: relative;
+    overflow: hidden;
+    background-image: url("../images/hero-services.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.compare-before::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.58);
+    /* среднее черное затемнение */
+    z-index: 0;
+    pointer-events: none;
+}
+
+.compare-before .container-wide {
+    position: relative;
+    z-index: 1;
 }
