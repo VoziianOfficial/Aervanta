@@ -243,7 +243,6 @@
                                 <img class="footer-brand__logo" src="${safeUrl(config.brand?.logo)}" alt="${safeText(config.brand?.logoAlt)}" width="74" height="74">
                                 <span>
                                     <span class="footer-brand__name" data-config="brand.name">${safeText(config.brand?.name)}</span>
-                                    <span class="footer-brand__tagline" data-config="brand.tagline">${safeText(config.brand?.tagline)}</span>
                                 </span>
                             </a>
 
@@ -729,10 +728,34 @@
         document.querySelectorAll('[data-service-icon-strip]').forEach((strip) => {
             if (strip.dataset.rendered === 'true') return;
 
+            const serviceItems = Array.isArray(config.services) ? config.services : [];
+            const extraItems = [
+                {
+                    title: config.pages?.home?.label || 'Home',
+                    file: config.pages?.home?.file || 'index.html',
+                    icon: 'house'
+                },
+                {
+                    title: config.pages?.about?.label || 'About',
+                    file: config.pages?.about?.file || 'about.html',
+                    icon: 'badge-info'
+                },
+                {
+                    title: config.pages?.services?.label || 'All Services',
+                    file: config.pages?.services?.file || 'all-services.html',
+                    icon: 'layout-grid'
+                },
+                {
+                    title: config.pages?.contact?.label || 'Contact',
+                    file: config.pages?.contact?.file || 'contact.html',
+                    icon: 'messages-square'
+                }
+            ];
+
             strip.innerHTML = `
                 <div class="container-wide">
                     <nav class="dark-icon-strip__grid" aria-label="Service page navigation">
-                        ${(Array.isArray(config.services) ? config.services : []).map((service) => `
+                        ${serviceItems.concat(extraItems).map((service) => `
                             <a class="dark-icon-strip__link" href="${safeUrl(service.file)}" aria-label="${safeText(service.title)}">
                                 ${icon(service.icon || 'circle')}
                             </a>

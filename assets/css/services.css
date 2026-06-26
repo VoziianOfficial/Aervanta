@@ -426,8 +426,10 @@
 }
 
 .service-page-icon-strip .dark-icon-strip__grid {
-    max-width: 980px;
-    margin-inline: auto;
+    width: 100%;
+    max-width: none;
+    margin-inline: 0;
+    grid-template-columns: repeat(10, minmax(0, 1fr));
 }
 
 .service-page-icon-strip .dark-icon-strip__link {
@@ -611,7 +613,7 @@
     }
 
     .service-page-icon-strip .dark-icon-strip__grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-template-columns: repeat(5, minmax(0, 1fr));
     }
 
     .service-faq__intro,
@@ -675,4 +677,82 @@
     .service-faq__accordion {
         padding: 22px;
     }
+}
+
+/* Service Fit cards — fixed photo background without breaking icons */
+.service-fit .service-fit-card {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* 3 different photos for the 3 cards */
+.service-fit .service-fit-card:nth-child(1) {
+    background-image: url("../images/service-fit-1.jpg");
+}
+
+.service-fit .service-fit-card:nth-child(2) {
+    background-image: url("../images/service-fit-2.jpg");
+}
+
+.service-fit .service-fit-card:nth-child(3) {
+    background-image: url("../images/service-fit-3.jpg");
+}
+
+/* black overlay */
+.service-fit .service-fit-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    border-radius: inherit;
+    background: rgba(0, 0, 0, 0.55);
+    pointer-events: none;
+}
+
+/* keep original red top line above overlay */
+.service-fit .service-fit-card::before {
+    z-index: 2;
+}
+
+/* ONLY text above overlay — do not touch svg positioning */
+.service-fit .service-fit-card h3,
+.service-fit .service-fit-card p {
+    position: relative;
+    z-index: 1;
+    color: #ffffff;
+}
+
+.service-fit .service-fit-card p {
+    color: rgba(255, 255, 255, 0.82);
+}
+
+/* icon stays exactly where original CSS placed it */
+.service-fit .service-fit-card>svg {
+    position: absolute;
+    right: 24px;
+    top: 24px;
+    z-index: 2;
+    color: var(--color-red);
+}
+
+/* keep original hover accent color */
+.service-fit .service-fit-card:hover>svg {
+    color: var(--color-orange);
+}
+
+/* keep photos on hover */
+.service-fit .service-fit-card:hover:nth-child(1) {
+    background-image: url("../images/service-fit-1.jpg");
+}
+
+.service-fit .service-fit-card:hover:nth-child(2) {
+    background-image: url("../images/service-fit-2.jpg");
+}
+
+.service-fit .service-fit-card:hover:nth-child(3) {
+    background-image: url("../images/service-fit-3.jpg");
 }
