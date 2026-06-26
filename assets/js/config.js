@@ -159,24 +159,24 @@ window.AERVANTA_CONFIG = {
     sharedHeroCards: [
         {
             title: 'Independent Platform',
-            text: 'Aervanta connects users with HVAC provider options.',
+            text: 'Explore independent HVAC paths.',
             icon: 'shield-check'
         },
         {
             title: 'Provider Terms',
-            text: 'Final pricing and scheduling come from participating providers.',
+            text: 'Review pricing and schedule details.',
             icon: 'file-check-2'
         },
         {
             title: 'Start Request',
-            text: 'Share your HVAC project details.',
+            text: 'Share your comfort project details.',
             icon: 'send',
             url: 'contact.html',
             isAction: true
         },
         {
             title: 'View Services',
-            text: 'Explore heating, cooling, and comfort paths.',
+            text: 'Compare heating, cooling, and air.',
             icon: 'layout-grid',
             url: 'all-services.html',
             isAction: true

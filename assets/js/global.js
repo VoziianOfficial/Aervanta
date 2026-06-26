@@ -417,9 +417,9 @@
                             ${icon(card.icon || 'circle')}
                         </div>
 
-                        <div>
-                            <h3>${safeText(card.title)}</h3>
-                            <p>${safeText(card.text)}</p>
+                        <div class="hero-card__content">
+                            <h3 class="hero-card__title">${safeText(card.title)}</h3>
+                            <p class="hero-card__text">${safeText(card.text)}</p>
                         </div>
                     </${tag}>
                 `;
