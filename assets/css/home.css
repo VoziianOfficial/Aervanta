@@ -1119,7 +1119,6 @@
     }
 }
 
-/* Mobile Home Difference — show title only, immediately visible */
 @media (max-width: 768px) {
     .home-hex__text {
         position: static !important;
@@ -1161,7 +1160,7 @@
     }
 }
 
-/* Desktop — make Home Difference hover text much larger */
+
 @media (min-width: 1025px) {
     .home-hex__text {
         gap: 14px;
@@ -1192,6 +1191,40 @@
     .home-hex__text p {
         max-width: 230px;
         font-size: 1.12rem;
+        line-height: 1.28;
+    }
+}
+
+
+@media (min-width: 1025px) {
+    .home-difference.section {
+        padding-top: 42px;
+        padding-bottom: 42px;
+    }
+
+    .home-difference__grid {
+        min-height: 220px;
+    }
+
+    .home-hex__shape {
+        width: min(100%, 225px);
+    }
+
+    .home-hex__text {
+        gap: 12px;
+        padding: 24px;
+    }
+
+    .home-hex__text h3 {
+        max-width: 220px;
+        font-size: 1.62rem;
+        line-height: 1;
+        letter-spacing: -0.055em;
+    }
+
+    .home-hex__text p {
+        max-width: 225px;
+        font-size: 1.04rem;
         line-height: 1.28;
     }
 }
