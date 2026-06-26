@@ -596,3 +596,14 @@
         margin-inline: auto;
     }
 }
+
+/* Contact Options Strip — compact cards */
+.contact-options .contact-option-card {
+    min-height: 130px;
+    aspect-ratio: auto;
+    padding: 18px 22px;
+}
+
+.contact-options .contact-option-card p {
+    margin-top: 6px;
+}
