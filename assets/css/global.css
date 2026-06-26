@@ -2098,3 +2098,30 @@ p {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
+
+@media (max-width: 1024px) {
+
+    h1,
+    .shared-hero__title,
+    .home-hero h1,
+    .service-hero h1,
+    .legal-hero h1 {
+        width: 100%;
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+
+    .shared-hero__content,
+    .home-hero__content {
+        align-items: center;
+        text-align: center;
+    }
+
+    .shared-hero__actions,
+    .home-hero__actions,
+    .btn-row {
+        justify-content: center;
+    }
+}
